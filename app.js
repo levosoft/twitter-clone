@@ -15,7 +15,10 @@ app.use(
   })
 );
 
-app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
+// parse application/x-www-from-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
 initDB((err, { tweetModel, userModel, saveDB }) => {
   if (err) {

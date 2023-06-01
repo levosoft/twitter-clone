@@ -1,6 +1,29 @@
 const loki = require("lokijs");
 let db = false;
 
+// ● Felhasználó (user)
+//    ○ id
+//    ○ email
+//    ○ jelszó (password)
+//    ○ név (name)
+//      ■ vezetéknév (lastName)
+//      ■ keresztnév (firstName)
+//      ■ nicknév (nickName)
+//    ○ életkor (age)
+//    ○ nem (gender)
+//    ○ avatar (fs-ben lévő címre mutat)
+//    ○ követések (following[])
+//    ○ követők (followers[])
+
+// ● Bejegyzés (tweet)
+//    ○ id
+//    ○ user id (userId)
+//    ○ cím (title)
+//    ○ szöveg (text)
+//    ○ kép (img) (fs-ben lévő címre mutat)
+//    ○ dátum (date)
+//    ○ törölve státusz (deleted) (törölve: boolean)
+
 /**
  * Init database
  * @param cb
@@ -30,7 +53,7 @@ function initDB(cb) {
       console.log("DB saved after init.");
       // dump all rows from all collection
       console.table(userModel.find());
-      console.log(tweetModel.find());
+      console.table(tweetModel.find());
       return cb(undefined, {
         tweetModel,
         userModel,

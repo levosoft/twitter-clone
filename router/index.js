@@ -11,14 +11,11 @@ const logoutMW = require("../middlewares/user/logout");
 const regMW = require("../middlewares/user/reg");
 
 const getTweetsMW = require("../middlewares/tweet/getTweets");
-// const getGalOwnerMW = require("../middlewares/gal/getGalOwner");
-
-// const modGalMW = require("../middlewares/mygal/modGal");
-// const getMyGalMW = require("../middlewares/mygal/getMyGal");
-// const getMyGalsMW = require("../middlewares/mygal/getMyGals");
-// const delGalMW = require("../middlewares/mygal/delGal");
-// const delPicMW = require("../middlewares/mygal/delPic");
-// const newGalMW = require("../middlewares/mygal/newGal");
+const getTweetMW = require("../middlewares/tweet/getTweet");
+const getMyTweetsMW = require("../middlewares/tweet/getMyTweets");
+const newTweetMW = require("../middlewares/tweet/newTweet");
+const editTweetMW = require("../middlewares/tweet/editTweet");
+const delTweetMW = require("../middlewares/tweet/delTweet");
 
 const renderMW = require("../middlewares/render");
 
@@ -60,29 +57,29 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
   //     renderMW(objRepo, "newpw")
   //   );
 
-  //   // Regisztráció screen
-  //   app.use(
-  //     "/reg",
-  //     getPublicGalsMW(objRepo),
-  //     regMW(objRepo),
-  //     loginMW(objRepo),
-  //     renderMW(objRepo, "reg")
-  //   );
+  // Regisztráció screen
+  app.use(
+    "/registration",
+    //getPublicGalsMW(objRepo),
+    regMW(objRepo),
+    //loginMW(objRepo),
+    renderMW(objRepo, "reg")
+  );
 
   // Kilépés
   app.get("/logout", logoutMW(objRepo));
 
-  //   // Profil screen
-  //   app.use(
-  //     "/profile",
-  //     authMW(objRepo),
-  //     getLoggedInUserMW(objRepo),
-  //     uploadMW.single("profile"),
-  //     modifyProfileImgMW(objRepo),
-  //     modifyUserMW(objRepo, "email"),
-  //     modifyUserMW(objRepo, "name"),
-  //     renderMW(objRepo, "profile")
-  //   );
+  // Profil screen
+  app.use(
+    "/profile",
+    // authMW(objRepo),
+    // getLoggedInUserMW(objRepo),
+    // uploadMW.single("profile"),
+    // modifyProfileImgMW(objRepo),
+    // modifyUserMW(objRepo, "email"),
+    // modifyUserMW(objRepo, "name"),
+    renderMW(objRepo, "profile")
+  );
 
   // Főoldal + bejelentkezés kezelése
   app.use(
