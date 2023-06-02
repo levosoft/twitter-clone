@@ -24,14 +24,15 @@ module.exports = function (objRepo) {
           firstName: req.body.name.firstName,
           nickName: req.body.name.nickName,
         },
-        age: req.body.age,
-        gender: req.body.gender,
-        avatar: req.body.gender,
+        age: parseInt(req.body.age),
+        gender: parseInt(req.body.gender),
+        avatar: parseInt(req.body.avatar),
         following: [],
         followers: [],
       });
     } catch (err) {
-      return res.redirect("/forgotpw");
+      console.log(err);
+      return res.redirect("/regerr");
     }
 
     return saveDB(next);

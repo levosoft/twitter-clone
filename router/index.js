@@ -81,6 +81,12 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
     renderMW(objRepo, "profile")
   );
 
+  //Adatkezelési tájékoztató
+  app.get("/privacypolicy", renderMW(objRepo, "pp"));
+
+  //Hibás reg
+  app.get("/regerr", renderMW(objRepo, "regerr"));
+
   // Főoldal + bejelentkezés kezelése
   app.use(
     "/",
