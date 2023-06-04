@@ -7,3 +7,6 @@ Extra funkciók:
 - követés funkció megvalósítása
 - retweet megvalósítása
 - profil bővítése
+
+Futtatás:
+`npm run nodemon`

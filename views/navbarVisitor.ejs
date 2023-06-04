@@ -1,32 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <div class="container-fluid">
-        <!-- Logo -->
-        <a class="navbar-brand" href="/">
-            <div class="d-flex align-items-center">
-                <img src="/images/logo.png" alt="Logo" style="max-width: 120px; height: auto;">
-                <h2 class="ms-2 mb-0">MyTweet</h2>
-            </div>
-        </a>
-
-        <!-- Mini form -->
-        <form class="d-flex" id="navbarForm">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <input class="form-control me-2" type="email" placeholder="Email" aria-label="Email">
-                    </div>
-                    <div class="col-md-6">
-                        <input class="form-control me-2" type="password" placeholder="Password" aria-label="Password">
-                    </div>                    
-                </div>
-                <div class="row">
-                    <div class="d-grid">
-                        <a href="/profile" class="btn btn-primary btn-sm">Bejelentkezés</a>
-                        <a href="/registration" class="btn btn-primary btn-sm">Regisztráció</a>
-                        <a href="/forgotpassword" class="btn btn-primary btn-sm">Elfelejtett jelszó</a>
-                    </div>                  
-                </div>               
-            </div>
-        </form>
+<nav class="navbar navbar-expand-lg fixed-top" role="navigation">
+    <div class="container">
+        <a class="navbar-brand" href="/"><img src="/images/logo.png" alt="Logo" style="max-width: 60px; height: auto;"></a>        
+        <h2 class="ms-2 mb-0">MyTweet</h2>
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+            &#9776;
+        </button>
+        <div class="collapse navbar-collapse" id="exCollapsingNavbar">            
+            <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+                <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings"><i class="fa fa-cog fa-fw fa-lg"></i></a></li>
+                <li class="dropdown order-1">
+                    <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-primary dropdown-toggle">Bejelentkezés <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right mt-1">
+                      <li class="p-3">
+                            <form  method="POST" class="form" role="form">
+                                <div class="form-group">
+                                    <input id="emailInput" name="email" placeholder="E-mail" class="form-control form-control-sm" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <input id="passwordInput" name="password" placeholder="Jelszó" class="form-control form-control-sm" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">OK</button>
+                                </div>
+                                <div class="form-group text-xs-center">
+                                    <small><a href="/forgotpassword">Elfelejtettem a jelszavam!</a></small>
+                                    <small><a href="/registration">Regisztrálok!</a></small>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>

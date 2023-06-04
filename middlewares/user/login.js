@@ -6,6 +6,7 @@
  */
 module.exports = function (objRepo) {
   const { userModel } = objRepo;
+
   return (req, res, next) => {
     if (
       typeof req.body.email === "undefined" ||
@@ -19,6 +20,7 @@ module.exports = function (objRepo) {
     });
 
     if (!user) {
+      console.log("Hibás email vagy jelszó!");
       res.locals.errors = res.locals.errors || [];
       res.locals.errors.push("Hibás email vagy jelszó!");
       return next();

@@ -62,7 +62,7 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
     "/registration",
     //getPublicGalsMW(objRepo),
     regMW(objRepo),
-    //loginMW(objRepo),
+    loginMW(objRepo),
     renderMW(objRepo, "reg")
   );
 
@@ -72,8 +72,8 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
   // Profil screen
   app.use(
     "/profile",
-    // authMW(objRepo),
-    // getLoggedInUserMW(objRepo),
+    authMW(objRepo),
+    getUserMW(objRepo),
     // uploadMW.single("profile"),
     // modifyProfileImgMW(objRepo),
     // modifyUserMW(objRepo, "email"),
@@ -91,7 +91,7 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
   app.use(
     "/",
     getTweetsMW(objRepo),
-    //loginMW(objRepo),
+    loginMW(objRepo),
     renderMW(objRepo, "index")
   );
 

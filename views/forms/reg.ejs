@@ -3,51 +3,51 @@
     <div class="form-group">
         <div class="d-grid gap-2">
             <label for="email">E-mail</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="E-mail" style="margin-bottom: 10px;">                  
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="E-mail" required>                  
         </div>
     </div>
     <div class="form-group">
         <div class="d-grid gap-2">
             <label for="password">Jelszó</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Jelszó" style="margin-bottom: 10px;">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Jelszó" required>
         </div>
     </div>
     <div class="form-group">
         <div class="d-grid gap-2">
             <label for="password2">Jelszó újra</label>
-            <input type="password" class="form-control" id="password2" placeholder="Jelszó újra" style="margin-bottom: 10px;">
+            <input type="password" class="form-control" id="password2" placeholder="Jelszó újra" required>
         </div>
     </div>
     <div class="form-group">
         <div class="d-grid gap-2">
             <label for="lastName">Vezetéknév</label>
-            <input type="text" class="form-control" id="lastName" name="name[lastName]" placeholder="Vezetéknév" style="margin-bottom: 10px;">                  
+            <input type="text" class="form-control" id="lastName" name="name[lastName]" placeholder="Vezetéknév" required>                  
         </div>
     </div>
     <div class="form-group">
         <div class="d-grid gap-2">
             <label for="firstName">Keresztnév</label>
-            <input type="text" class="form-control" id="firstName" name="name[firstName]" placeholder="Keresztnév" style="margin-bottom: 10px;">                  
+            <input type="text" class="form-control" id="firstName" name="name[firstName]" placeholder="Keresztnév" required>                  
         </div>
     </div>
     <div class="form-group">
         <div class="d-grid gap-2">
             <label for="nickName">Nicknév</label>
-            <input type="text" class="form-control" id="nickName" name="name[nickName]" placeholder="Nicknév" style="margin-bottom: 10px;">                  
+            <input type="text" class="form-control" id="nickName" name="name[nickName]" placeholder="Nicknév" required>                  
         </div>
     </div>
     <div class="form-group">
         <div class="d-grid gap-2">
             <label for="age">Életkor</label>
-            <input type="text" class="form-control" id="age" name="age" placeholder="Életkor" style="margin-bottom: 10px;">                  
+            <input type="text" class="form-control" id="age" name="age" placeholder="Életkor" required>                  
         </div>
     </div>
 
     <label for="genders">Nem</label>
-    <div class="row" id="genders" style="margin-bottom: 30px;">
+    <div class="row" id="genders">
         <div class='col text-center'>
             <label for="male">Férfi </label>
-            <input type="radio" name="gender" id="male" value="1">                      
+            <input type="radio" name="gender" id="male" value="1" required>                      
         </div>
         <div class='col text-center'>
             <label for="female">Nő </label>
@@ -57,9 +57,9 @@
     </div>
 
     <label for="avatars">Avatar</label>
-    <div class="row" id="avatars" style="margin-bottom: 30px;">
+    <div class="row" id="avatars">
         <div class='col text-center'>
-        <input type="radio" name="avatar" id="avatar1" class="d-none imgbgchk" value="1">
+        <input type="radio" name="avatar" id="avatar1" class="d-none imgbgchk" value="cat" required>
           <label for="avatar1">
             <img src="/images/avatars/cat.png" alt="Image 1">
             <div class="tick_container">
@@ -68,7 +68,7 @@
             </label>
         </div>
         <div class='col text-center'>
-        <input type="radio" name="avatar" id="avatar2" class="d-none imgbgchk" value="2">
+        <input type="radio" name="avatar" id="avatar2" class="d-none imgbgchk" value="dog">
           <label for="avatar2">
             <img src="/images/avatars/dog.png" alt="Image 2">
             <div class="tick_container">
@@ -77,7 +77,7 @@
           </label>
         </div>
         <div class='col text-center'>
-        <input type="radio" name="avatar" id="avatar3" class="d-none imgbgchk" value="3">
+        <input type="radio" name="avatar" id="avatar3" class="d-none imgbgchk" value="panda">
           <label for="avatar3">
             <img src="/images/avatars/panda.png" alt="Image 3">
             <div class="tick_container">
@@ -86,7 +86,7 @@
           </label>
         </div>
         <div class='col text-center'>
-        <input type="radio" name="avatar" id="avatar4" class="d-none imgbgchk" value="4">
+        <input type="radio" name="avatar" id="avatar4" class="d-none imgbgchk" value="bear">
             <label for="avatar4">
               <img src="/images/avatars/bear.png" alt="Image 4">
               <div class="tick_container">
@@ -95,7 +95,7 @@
             </label>
         </div>
         <div class='col text-center'>
-            <input type="radio" name="avatar" id="avatar5" class="d-none imgbgchk" value="5">
+            <input type="radio" name="avatar" id="avatar5" class="d-none imgbgchk" value="rabbit">
                 <label for="avatar5">
                   <img src="/images/avatars/rabbit.png" alt="Image 5">
                   <div class="tick_container">
@@ -108,12 +108,27 @@
     <div class="form-group">
         <div class="d-grid gap-2">
             <div class="form-check">                    
-                    <input type="checkbox" class="form-check-input" id="pp">
-                    <label class="form-check-label" for="pp" style="margin-bottom: 30px;">Elfogadom az <a href="/privacypolicy" target="_blank">adatkezelési tájékoztatóban</a> foglaltakat</label>                    
+                    <input type="checkbox" class="form-check-input" id="pp" required>
+                    <label class="form-check-label" for="pp">Elfogadom az <a href="/privacypolicy" target="_blank">adatkezelési tájékoztatóban</a> foglaltakat</label>                    
             </div>
         </div>
     </div>              
         
     <input type="submit" class="btn btn-primary d-block" value="Regisztráció"/>
                     
-</form>  
+</form>
+
+<script>
+  $(document).ready(function() {
+    $('#password2').on('change', function() {
+      var password = $('#password').val();
+      var password2 = $(this).val();
+      
+      if (password !== password2) {
+        $("#password2").trigger("focus");
+        $("#password2").val("");    
+        alert('A jelszavak nem egyezenek!');        
+      }
+    });
+  });
+</script>

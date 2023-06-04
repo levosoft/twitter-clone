@@ -24,6 +24,34 @@ h2{
     font-family: 'Titan One', cursive;
 }
 
+button:focus {
+    outline: 0;
+}
+
+.navbar .dropdown-menu .form-control {
+    width: 200px;
+}
+
+.pagecontent{
+    margin-top: 150px;
+}
+
+input{
+    margin-bottom: 10px;
+}
+
+#genders{
+    margin-bottom: 30px;
+}
+
+#avatars{
+    margin-bottom: 30px;
+}
+
+#pp{
+    margin-bottom: 30px;
+}
+
 .error{
     color: rgb(223, 102, 15);
     font-size: 25px;
@@ -78,3 +106,4 @@ html,body{
     width: 40px;
     border-radius: 100%;
 }
+
