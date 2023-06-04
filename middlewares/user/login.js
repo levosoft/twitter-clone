@@ -31,7 +31,7 @@ module.exports = function (objRepo) {
       if (err) {
         return next(err);
       }
-      return res.redirect("/profile");
+      return res.redirect("/history");
     });
   };
 };

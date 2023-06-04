@@ -26,7 +26,7 @@ module.exports = function (objRepo) {
         },
         age: parseInt(req.body.age),
         gender: parseInt(req.body.gender),
-        avatar: parseInt(req.body.avatar),
+        avatar: req.body.avatar,
         following: [],
         followers: [],
       });

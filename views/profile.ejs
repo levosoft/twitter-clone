@@ -3,8 +3,13 @@
 <div class="container mt-4">
     <div class="pagecontent">
         <div class="row">
-            <div class="p-5 text-center bg-light">                      
-                <p>Profil</p>                
+            <div class="p-5 bg-light">                      
+                <h2>Profilom</h2>
+                <p>Vezetéknév: <%= user.name.lastName %></p>                
+                <p>Keresztnév: <%= user.name.firstName %></p>                
+                <p>Nicknév: <%= user.name.nickName %></p>
+                <p>Életkor: <%= user.age %></p>
+                <p>Nem: <%= user.gender == 1 ? 'férfi' : 'nő'  %></p>
               </div>
         </div>
     </div>

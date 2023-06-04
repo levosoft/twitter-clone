@@ -48,15 +48,6 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
   //     renderMW(objRepo, "forgotpw")
   //   );
 
-  //   // Jelszó módosítás
-  //   app.use(
-  //     "/newpw/:userid/:secret",
-  //     getPublicGalsMW(objRepo),
-  //     getUserByPwSecretMW(objRepo),
-  //     modifyUserMW(objRepo, "password"),
-  //     renderMW(objRepo, "newpw")
-  //   );
-
   // Regisztráció screen
   app.use(
     "/registration",
@@ -74,11 +65,49 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
     "/profile",
     authMW(objRepo),
     getUserMW(objRepo),
-    // uploadMW.single("profile"),
+    //uploadMW.single("profile"),
     // modifyProfileImgMW(objRepo),
     // modifyUserMW(objRepo, "email"),
     // modifyUserMW(objRepo, "name"),
     renderMW(objRepo, "profile")
+  );
+
+  // app.use(
+  //   "/tweet",
+  //   authMW(objRepo),
+  //   getUserMW(objRepo),
+  //   //uploadMW.array('images', 10),
+  //   newTweetMW(objRepo),
+  //   //modGalMW(objRepo),
+  //   renderMW(objRepo, "tweet")
+  // );
+
+  app.get(
+    "/tweet",
+    authMW(objRepo),
+    getUserMW(objRepo),
+    //uploadMW.array('images', 10),
+    //newTweetMW(objRepo),
+    //modGalMW(objRepo),
+    renderMW(objRepo, "tweet")
+  );
+
+  app.post(
+    "/tweet",
+    authMW(objRepo),
+    getUserMW(objRepo),
+    //uploadMW.array('images', 10),
+    newTweetMW(objRepo),
+    //modGalMW(objRepo),
+    renderMW(objRepo, "history")
+  );
+
+  app.get(
+    "/history",
+    authMW(objRepo),
+    getUserMW(objRepo),
+    getTweetsMW(objRepo),
+    renderMW(objRepo, "history")
   );
 
   //Adatkezelési tájékoztató
