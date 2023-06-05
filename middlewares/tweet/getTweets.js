@@ -15,7 +15,7 @@ module.exports = function (objRepo) {
         const tweetWithUser = {
           ...tweet,
           user: user,
-          isCurrentUserTweet: user.id === req.session.userId,
+          isCurrentUserTweet: user.id === (await req.session.userid),
         };
         tweetsWithUsers.push(tweetWithUser);
       }
