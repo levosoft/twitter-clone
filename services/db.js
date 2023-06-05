@@ -43,7 +43,7 @@ function initDB(cb) {
     if (userModel === null) {
       userModel = db.addCollection("user", {
         indices: ["id", "email"],
-        unique: ["email"],
+        unique: ["email", "name.nickName"],
       });
     }
     db.saveDatabase((err) => {

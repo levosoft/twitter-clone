@@ -48,7 +48,7 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
   //     renderMW(objRepo, "forgotpw")
   //   );
 
-  // Regisztráció screen
+  // Regisztráció
   app.use(
     "/registration",
     //getPublicGalsMW(objRepo),
@@ -82,6 +82,7 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
   //   renderMW(objRepo, "tweet")
   // );
 
+  //Új bejegyzés - Űrlap
   app.get(
     "/tweet",
     authMW(objRepo),
@@ -92,23 +93,46 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
     renderMW(objRepo, "tweet")
   );
 
+  //Új bejegyzés - Beküldés
   app.post(
     "/tweet",
     authMW(objRepo),
     getUserMW(objRepo),
     //uploadMW.array('images', 10),
     newTweetMW(objRepo),
-    //modGalMW(objRepo),
     getTweetsMW(objRepo),
     renderMW(objRepo, "history")
   );
 
+  //Bejegyzés megtekintése
   app.get(
-    "/history",
+    "/tweet/edit/:id",
     authMW(objRepo),
-    getUserMW(objRepo),
+    //uploadMW.array("images", 10),
+    getTweetMW(objRepo),
+    editTweetMW(objRepo),
     getTweetsMW(objRepo),
     renderMW(objRepo, "history")
+  );
+
+  //Bejegyzés módosítása
+  app.post(
+    "/tweet/edit/:id",
+    authMW(objRepo),
+    //uploadMW.array("images", 10),
+    getTweetMW(objRepo), //TODO - ez legyen?!
+    editTweetMW(objRepo), //TODO - vagy tán ez?!
+    getTweetsMW(objRepo),
+    renderMW(objRepo, "history")
+  );
+
+  //Bejegyzés törlése
+  app.get(
+    //TODO - maradjon get?!
+    "/tweet/delete/:id",
+    authMW(objRepo)
+    //getMyGalMW(objRepo),  //TODO - ez végül a getTweetMW vajon?! Asszem igen!
+    //delGalMW(objRepo)     //TODO - ezt még meg kell írni!
   );
 
   //Adatkezelési tájékoztató
@@ -117,7 +141,16 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
   //Hibás reg
   app.get("/regerr", renderMW(objRepo, "regerr"));
 
-  // Főoldal + bejelentkezés kezelése
+  //Idővonal (Felhasználóknak)
+  app.get(
+    "/history",
+    authMW(objRepo),
+    getUserMW(objRepo),
+    getTweetsMW(objRepo),
+    renderMW(objRepo, "history")
+  );
+
+  // Főoldal + Login + Idővonal (Látogatóknak)
   app.use(
     "/",
     getTweetsMW(objRepo),
