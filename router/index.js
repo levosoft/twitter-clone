@@ -99,6 +99,7 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
     //uploadMW.array('images', 10),
     newTweetMW(objRepo),
     //modGalMW(objRepo),
+    getTweetsMW(objRepo),
     renderMW(objRepo, "history")
   );
 

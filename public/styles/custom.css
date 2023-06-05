@@ -28,6 +28,10 @@ button:focus {
     outline: 0;
 }
 
+.navbar {
+    background-color: #ffffff;
+}
+
 .navbar .dropdown-menu .form-control {
     width: 200px;
 }

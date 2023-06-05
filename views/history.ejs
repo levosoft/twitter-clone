@@ -6,8 +6,58 @@
             <div class="row">
                 <div class="p-5 text-center bg-light">                      
                     <p>Itt jönnek sorban a bejegyzések card-ként ciklusban...</p>                
-                    <p>/Lehet közte saját is, ami szerkeszthető - Mert be van lépve a felhasználó/</p>                
+                    <p>/Lehet közte saját is, ami szerkeszthető - Mert be van lépve a felhasználó/</p>                                
                   </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                  <div class="row">
+                      <% for (let i = 0; i < tweets.length ;i++){ %>
+                        <div class="col-md-12">
+                          <div class="card mb-3">
+                              
+                            <div class="card-header">
+                              <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                  <img src="/images/avatars/<%= tweets[i].user.avatar %>.png" width="60" height="60" class="rounded-circle">
+                                  <div class="ml-3">
+                                    <p class="card-text"><%= tweets[i].user.name.nickName %></p>
+                                  </div>
+                                </div>
+                                <div class="d-flex align-items-center flex-grow-1">
+                                  <h5 class="card-title text-center w-100"><%= tweets[i].title %></h5>
+                                  <p class="card-text"><%= tweets[i].date %></p>
+                                </div>
+                              </div>
+                            </div>                                                                                 
+
+                            <div class="card-body">
+                              <p class="card-text"><%= tweets[i].text %></p>                              
+                            </div>
+
+                            <!-- <div class="card-footer text-center text-muted">
+                              <div class="d-flex justify-content-center">
+                                <div class="btn-group" role="group">
+                                  <a href="#" class="btn btn-primary btn-sm" style="opacity: 70%;"><i class="fas fa-edit"></i></a>
+                                  <a href="#" class="btn btn-danger btn-sm" style="opacity: 70%;"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                              </div>
+                            </div> -->
+
+                            <div class="card-footer text-center text-muted">
+                              <% if (tweets[i].isCurrentUserTweet) { %>
+                                <div class="d-flex">
+                                  <a href="#" class="btn btn-primary btn-sm" style="opacity: 70%;"><i class="fas fa-edit"></i></a>
+                                  <a href="#" class="btn btn-danger btn-sm" style="opacity: 70%;"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                              <% } %>
+                            </div>
+
+                          </div>
+                        </div>
+                      <% } %>
+                  </div>
+              </div>
             </div>
         </div>
     </div>

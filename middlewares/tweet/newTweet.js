@@ -8,14 +8,14 @@ const moment = require("moment");
 module.exports = function (objRepo) {
   const { tweetModel, uuid, saveDB } = objRepo;
 
-  console.log("newTweet called...");
+  //console.log("newTweet called...");
 
   return (req, res, next) => {
-    console.log(req.body.title); //FIXME
+    //console.log(req.body.title); //FIXME
     if (typeof req.body.title === "undefined") {
       return next();
     }
-    console.log(req.session); //FIXME
+    //console.log(req.session); //FIXME
     res.locals.tweet = tweetModel.insert({
       id: uuid.v4(),
       userId: req.session.userid,
