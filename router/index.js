@@ -72,28 +72,15 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
     renderMW(objRepo, "profile")
   );
 
-  // app.use(
-  //   "/tweet",
-  //   authMW(objRepo),
-  //   getUserMW(objRepo),
-  //   //uploadMW.array('images', 10),
-  //   newTweetMW(objRepo),
-  //   //modGalMW(objRepo),
-  //   renderMW(objRepo, "tweet")
-  // );
-
-  //Új bejegyzés - Űrlap
+  //Új bejegyzés - Üres űrlap
   app.get(
     "/tweet",
     authMW(objRepo),
     getUserMW(objRepo),
-    //uploadMW.array('images', 10),
-    //newTweetMW(objRepo),
-    //modGalMW(objRepo),
     renderMW(objRepo, "tweet")
   );
 
-  //Új bejegyzés - Beküldés
+  //Új bejegyzés - Űrlap beküldése
   app.post(
     "/tweet",
     authMW(objRepo),
@@ -104,36 +91,37 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
     renderMW(objRepo, "history")
   );
 
-  //Bejegyzés megtekintése módosításkor
+  //Módosítás - Módosítandó bejegyzés megtekintése
   app.get(
     "/tweet/edit/:id",
     authMW(objRepo),
     getUserMW(objRepo),
     //uploadMW.array("images", 10),
     getTweetMW(objRepo),
-    //editTweetMW(objRepo),
     renderMW(objRepo, "edit")
   );
 
-  //Bejegyzés beküldése módosításkor
+  //Módosítás - Módosított bejegyzés beküldése
   app.post(
     "/tweet/edit/:id",
     authMW(objRepo),
     getUserMW(objRepo),
     //uploadMW.array("images", 10),
-    //getTweetMW(objRepo),
     editTweetMW(objRepo),
     getTweetsMW(objRepo),
     renderMW(objRepo, "history")
   );
 
-  //Bejegyzés törlése
+  //Törlés
+  //POST metódussal szerettem volna, de vmiért azt nem akarja... Miért?!
   app.get(
-    //TODO - maradjon get?!
     "/tweet/delete/:id",
     authMW(objRepo),
-    getTweetMW(objRepo) //TODO - ez végül a getTweetMW vajon?! Asszem igen!
-    //delGalMW(objRepo)     //TODO - ezt még meg kell írni!
+    getUserMW(objRepo),
+    getTweetMW(objRepo),
+    delTweetMW(objRepo), //FIXME - Megcsinálja a törlést, betölti az aktuális tweet-eket de fent marad a törlés url-en... Miért?!
+    getTweetsMW(objRepo),
+    renderMW(objRepo, "history")
   );
 
   //Adatkezelési tájékoztató
