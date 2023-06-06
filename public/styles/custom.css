@@ -57,7 +57,7 @@ input{
 }
 
 .error{
-    color: rgb(223, 102, 15);
+    color: rgba(245, 116, 23, 0.807);
     font-size: 25px;
     font-weight: bold;  
 }

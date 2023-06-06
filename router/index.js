@@ -130,6 +130,9 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
   //Hibás reg
   app.get("/regerr", renderMW(objRepo, "regerr"));
 
+  //Hibás login
+  app.get("/loginerr", renderMW(objRepo, "loginerr"));
+
   //Idővonal (Felhasználóknak)
   app.get(
     "/history",

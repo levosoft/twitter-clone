@@ -21,9 +21,10 @@ module.exports = function (objRepo) {
 
     if (!user) {
       console.log("Hibás email vagy jelszó!");
-      res.locals.errors = res.locals.errors || [];
-      res.locals.errors.push("Hibás email vagy jelszó!");
-      return next();
+      // res.locals.errors = res.locals.errors || [];
+      // res.locals.errors.push("Hibás email vagy jelszó!");
+      // return next();
+      return res.redirect("/loginerr");
     }
 
     req.session.userid = user.id;
