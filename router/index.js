@@ -104,24 +104,25 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
     renderMW(objRepo, "history")
   );
 
-  //Bejegyzés megtekintése
+  //Bejegyzés megtekintése módosításkor
   app.get(
     "/tweet/edit/:id",
     authMW(objRepo),
+    getUserMW(objRepo),
     //uploadMW.array("images", 10),
     getTweetMW(objRepo),
-    editTweetMW(objRepo),
-    getTweetsMW(objRepo),
-    renderMW(objRepo, "history")
+    //editTweetMW(objRepo),
+    renderMW(objRepo, "edit")
   );
 
-  //Bejegyzés módosítása
+  //Bejegyzés beküldése módosításkor
   app.post(
     "/tweet/edit/:id",
     authMW(objRepo),
+    getUserMW(objRepo),
     //uploadMW.array("images", 10),
-    getTweetMW(objRepo), //TODO - ez legyen?!
-    editTweetMW(objRepo), //TODO - vagy tán ez?!
+    //getTweetMW(objRepo),
+    editTweetMW(objRepo),
     getTweetsMW(objRepo),
     renderMW(objRepo, "history")
   );
@@ -130,8 +131,8 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
   app.get(
     //TODO - maradjon get?!
     "/tweet/delete/:id",
-    authMW(objRepo)
-    //getMyGalMW(objRepo),  //TODO - ez végül a getTweetMW vajon?! Asszem igen!
+    authMW(objRepo),
+    getTweetMW(objRepo) //TODO - ez végül a getTweetMW vajon?! Asszem igen!
     //delGalMW(objRepo)     //TODO - ezt még meg kell írni!
   );
 

@@ -7,16 +7,18 @@
 module.exports = function (objRepo) {
   const { tweetModel } = objRepo;
   return (req, res, next) => {
-    const gal = tweetModel.findOne({
-      id: req.params.tweetid, //FIXME
-      user_id: req.session.userid,
+    //console.log("getTweet - req.params.id", req.params.id);
+    const tweet = tweetModel.findOne({
+      id: req.params.id,
+      userId: req.session.userid,
     });
 
-    if (!gal) {
+    if (!tweet) {
       return res.redirect("/tweet");
     }
 
     res.locals.tweet = tweet;
+    //console.log("getTweet - res.locals.tweet", tweet);
     return next();
   };
 };

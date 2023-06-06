@@ -6,7 +6,11 @@
 module.exports = function (objRepo) {
   const { tweetModel, userModel } = objRepo;
   return async (req, res, next) => {
-    const tweets = tweetModel.chain().find({}).simplesort("date", true).data();
+    const tweets = tweetModel
+      .chain()
+      .find({ deleted: false })
+      .simplesort("date", true)
+      .data();
     const tweetsWithUsers = [];
 
     for (const tweet of tweets) {
