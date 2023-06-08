@@ -119,7 +119,7 @@ module.exports = function (app, { tweetModel, userModel, saveDB }) {
     authMW(objRepo),
     getUserMW(objRepo),
     getTweetMW(objRepo),
-    delTweetMW(objRepo), //FIXME - Megcsinálja a törlést, betölti az aktuális tweet-eket de fent marad a törlés url-en... Miért?!
+    delTweetMW(objRepo),
     getTweetsMW(objRepo),
     renderMW(objRepo, "history")
   );

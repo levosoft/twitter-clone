@@ -29,28 +29,3 @@ initDB((err, { tweetModel, userModel, saveDB }) => {
     console.log(`Running on: 3000`);
   });
 });
-
-// app.get("/", function (req, res) {
-//   console.log(req.session);
-
-//   if (!req.session.number) {
-//     req.session.number = 0;
-//   }
-//   res.render("index", { number: req.session.number });
-// });
-
-// app.get("/increase-session", function (req, res) {
-//   req.session.number++;
-//   return res.redirect("/");
-// });
-
-// app.get("/new-session", function (req, res) {
-//   req.session.regenerate(function (err) {
-//     console.log("BOOOOM!!!");
-//   });
-//   return res.redirect("/");
-// });
-
-// app.listen(3000, function () {
-//   console.log("Running on :3000");
-// });

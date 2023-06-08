@@ -32,7 +32,7 @@ module.exports = function (objRepo) {
       tweetModel.update(tweet);
 
       // A módosított adatok mentése
-      return saveDB(next);
+      return saveDB(res.redirect("/history"));
     } else {
       return next(new Error("A tweet nem található."));
     }
